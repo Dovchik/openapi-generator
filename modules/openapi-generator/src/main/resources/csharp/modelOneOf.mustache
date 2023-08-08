@@ -9,7 +9,6 @@
     [ComVisible({{{.}}})]
     {{/vendorExtensions.x-com-visible}}
     [JsonConverter(typeof({{classname}}JsonConverter))]
-    [DataContract(Name = "{{{name}}}")]
     {{>visibility}} partial class {{classname}} : {{#lambda.joinWithComma}}AbstractOpenAPISchema  {{#parent}}{{{.}}}  {{/parent}}{{#equatable}}IEquatable<{{classname}}>  {{/equatable}}{{#validatable}}IValidatableObject  {{/validatable}}{{/lambda.joinWithComma}}
     {
         {{#isNullable}}
@@ -95,15 +94,6 @@
             sb.Append("  ActualInstance: ").Append(this.ActualInstance).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
-        }
-
-        /// <summary>
-        /// Returns the JSON string presentation of the object
-        /// </summary>
-        /// <returns>JSON string presentation of the object</returns>
-        public override string ToJson()
-        {
-            return JsonConvert.SerializeObject(this.ActualInstance, {{classname}}.SerializerSettings);
         }
 
         /// <summary>

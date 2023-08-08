@@ -1,0 +1,8 @@
+generatorName: csharp
+outputDir: /home/dovchik/source/openapi-generator/outputtest
+inputSpec: /home/dovchik/source/carmem/numbers-oas3.yaml
+templateDir: /home/dovchik/source/openapi-generator/modules/openapi-generator/src/main/resources/csharp
+additionalProperties:
+  equatable: false
+  nullableReferenceTypes: false
+  validatable: false
