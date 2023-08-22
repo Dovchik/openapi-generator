@@ -1,5 +1,5 @@
     /// <summary>
-    /// {{description}}{{^description}}{{classname}}{{/description}}
+    ///     {{description}}{{^description}}{{classname}}{{/description}}
     /// </summary>
     {{#vendorExtensions.x-cls-compliant}}
     [CLSCompliant({{{vendorExtensions.x-cls-compliant}}})]
@@ -35,12 +35,6 @@
         /// <summary>
         /// {{description}}{{^description}}Gets or Sets {{{name}}}{{/description}}
         /// </summary>
-        {{#description}}
-        /// <value>{{.}}</value>
-        {{/description}}
-        {{#example}}
-        /// <example>{{.}}</example>
-        {{/example}}
         {{^conditionalSerialization}}
         {{#deprecated}}
         [Obsolete]
@@ -66,12 +60,8 @@
         {{^isInherited}}
         {{^isEnum}}
         /// <summary>
-        /// {{description}}{{^description}}Gets or Sets {{{name}}}{{/description}}
-        /// </summary>{{#description}}
-        /// <value>{{.}}</value>{{/description}}
-        {{#example}}
-        /// <example>{{.}}</example>
-        {{/example}}
+        ///     {{description}}{{^description}}Gets or Sets {{{name}}}{{/description}}
+        /// </summary>
         {{^conditionalSerialization}}
         {{#deprecated}}
         [Obsolete]
@@ -97,14 +87,14 @@
         {{/vars}}
         {{#isAdditionalPropertiesTrue}}
         /// <summary>
-        /// Gets or Sets additional properties
+        ///     Gets or Sets additional properties
         /// </summary>
         [JsonExtensionData]
         public IDictionary<string, object> AdditionalProperties { get; set; }
 
         {{/isAdditionalPropertiesTrue}}
         /// <summary>
-        /// Returns the string presentation of the object
+        ///     Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
@@ -126,7 +116,7 @@
         {{#equatable}}
 
         /// <summary>
-        /// Returns true if objects are equal
+        ///     Returns true if objects are equal
         /// </summary>
         /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
@@ -141,7 +131,7 @@
         }
 
         /// <summary>
-        /// Returns true if {{classname}} instances are equal
+        ///     Returns true if {{classname}} instances are equal
         /// </summary>
         /// <param name="input">Instance of {{classname}} to be compared</param>
         /// <returns>Boolean</returns>
@@ -179,7 +169,7 @@
         }
 
         /// <summary>
-        /// Gets the hash code
+        ///     Gets the hash code
         /// </summary>
         /// <returns>Hash code</returns>
         public override int GetHashCode()
