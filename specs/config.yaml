@@ -1,8 +1,11 @@
 generatorName: csharp
-outputDir: /home/dovchik/source/openapi-generator/outputtest
-inputSpec: /home/dovchik/source/carmem/numbers-oas3.yaml
+outputDir: /home/dovchik/source/voice-api
+inputSpec: /home/dovchik/source/openapi-generator/inputs/voice.json
+# inputSpec: /home/dovchik/source/carmem/numbers-oas3.yaml
+# inputSpec: /home/dovchik/source/carmem/sms-oas3.json
 templateDir: /home/dovchik/source/openapi-generator/modules/openapi-generator/src/main/resources/csharp
 additionalProperties:
   equatable: false
   nullableReferenceTypes: false
   validatable: false
+  allowUnicodeIdentifiers: true

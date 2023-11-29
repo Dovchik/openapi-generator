@@ -6,26 +6,14 @@
         /// <value>{{.}}</value>
         {{/description}}
         {{#isString}}
-        {{^useGenericHost}}
-        [JsonConverter(typeof(StringEnumConverter))]
-        {{/useGenericHost}}
         {{/isString}}
-        {{>visibility}} enum {{datatypeWithEnum}}{{^datatypeWithEnum}}{{classname}}{{/datatypeWithEnum}}{{#vendorExtensions.x-enum-byte}}: byte{{/vendorExtensions.x-enum-byte}}
+        [JsonConverter(typeof(EnumRecordJsonConverter<{{datatypeWithEnum}}>))]
+        {{>visibility}} record {{datatypeWithEnum}}{{^datatypeWithEnum}}{{classname}}{{/datatypeWithEnum}}{{#vendorExtensions.x-enum-byte}}: byte{{/vendorExtensions.x-enum-byte}}(string Value) : EnumRecord(Value)
         {
+        
             {{#allowableValues}}
             {{#enumVars}}
-            /// <summary>
-            /// Enum {{name}} for value: {{value}}
-            /// </summary>
-            {{^useGenericHost}}
-            {{#isString}}
-            [EnumMember(Value = "{{{value}}}")]
-            {{/isString}}
-            {{/useGenericHost}}
-            {{name}}{{^isString}} = {{{value}}}{{/isString}}{{#isString}}{{^vendorExtensions.x-zero-based-enum}} = {{-index}}{{/vendorExtensions.x-zero-based-enum}}{{/isString}}{{^-last}},{{/-last}}
-            {{^-last}}
-
-            {{/-last}}
+            public static readonly {{datatypeWithEnum}} {{value}} = new("{{value}}");
             {{/enumVars}}
             {{/allowableValues}}
         }
