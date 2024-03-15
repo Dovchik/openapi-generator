@@ -100,15 +100,15 @@
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class {{classname}} {\n");
+            sb.Append($"class {nameof({{classname}})} {{\n");
             {{#parent}}
-            sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
+            sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append('\n');
             {{/parent}}
             {{#vars}}
-            sb.Append("  {{name}}: ").Append({{name}}).Append("\n");
+            sb.Append($"  {nameof({{name}})}: ").Append({{name}}).Append('\n');
             {{/vars}}
             {{#isAdditionalPropertiesTrue}}
-            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
+            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append('\n');
             {{/isAdditionalPropertiesTrue}}
             sb.Append("}\n");
             return sb.ToString();
