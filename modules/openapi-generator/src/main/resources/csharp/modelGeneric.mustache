@@ -39,15 +39,16 @@
         {{#deprecated}}
         [Obsolete]
         {{/deprecated}}
+        [JsonPropertyName("{{baseName}}")]
         {{#required}}
         #if NET7_0_OR_GREATER
         public required {{{complexType}}}{{^complexType}}{{{datatypeWithEnum}}}{{/complexType}}{{^isContainer}}{{^required}}?{{/required}}{{/isContainer}} {{name}} { get; set; }
         #else 
-        public {{{complexType}}}{{^complexType}}{{{datatypeWithEnum}}}{{/complexType}}{{^isContainer}}{{^required}}?{{/required}}{{/isContainer}} {{name}} { get; set; }
+        public {{{complexType}}}{{^complexType}}{{{datatypeWithEnum}}}{{/complexType}}{{^isContainer}}{{^required}}?{{/required}}{{/isContainer}} {{name}} { get; set; }  = null!;
         #endif
         {{/required}}
         {{^required}}
-        public {{{complexType}}}{{^complexType}}{{{datatypeWithEnum}}}{{/complexType}}{{^isContainer}}{{^required}}?{{/required}}{{/isContainer}} {{name}} { get; set; }
+        public {{{complexType}}}{{^complexType}}{{{datatypeWithEnum}}}{{/complexType}}{{^isContainer}}{{^required}}?{{/required}}{{/isContainer}} {{name}} { get; set; } 
         {{/required}}
 
         {{/conditionalSerialization}}
@@ -62,6 +63,7 @@
         /// <summary>
         ///     {{description}}{{^description}}Gets or Sets {{{name}}}{{/description}}
         /// </summary>
+        [JsonPropertyName("{{baseName}}")]
         {{^conditionalSerialization}}
         {{#deprecated}}
         [Obsolete]

@@ -9,3 +9,8 @@
 java -jar modules/openapi-generator-cli/target/openapi-generator-cli.jar generate -c config.yaml
 ```
 where -c is path of config file
+
+
+```
+
+openapi-generator-cli generate -c /home/dovchik/source/openapi-generator/specs/config-rust.yaml
